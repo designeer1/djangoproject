@@ -46,14 +46,6 @@ else:
     import pyautogui
 
 # rest of your code where you use pyautogui
-def some_function():
-    if pyautogui is not None:
-        # Your pyautogui code here, e.g., pyautogui.click()
-        print("pyautogui is available")
-    else:
-        # Handle alternative logic when pyautogui is not available
-        print("pyautogui is not available. Skipping this functionality.")
-
 
 
 with open("intents.json") as file:
