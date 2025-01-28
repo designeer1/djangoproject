@@ -1,7 +1,10 @@
-Django==4.2.18
-gunicorn==23.0.0
-requests==2.32.3
-psycopg2==2.9.3
-python-dotenv==1.0.1
+Django==4.1.7
+numpy==1.23.5
+tensorflow==2.11.0
+pyttsx3==2.90
+speechrecognition==3.8.1
+psutil==5.9.4
+pyautogui==0.9.53
+comtypes==1.1.10
+elevenlabs==0.0.5
 waitress
-numpy
