@@ -1,6 +1,6 @@
 Django==4.1.7
 numpy==1.23.5
-tensorflow==2.11.0
+tensorflow==2.10.1
 pyttsx3==2.90
 speechrecognition==3.8.1
 psutil==5.9.4
