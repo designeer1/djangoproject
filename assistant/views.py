@@ -34,6 +34,28 @@ TOKENIZER_PATH = os.path.join(os.path.dirname(__file__), "backend/tokenizer.pkl"
 LABEL_ENCODER_PATH = os.path.join(os.path.dirname(__file__), "backend/label_encoder.pkl")
 INTENTS_PATH = os.path.join(os.path.dirname(__file__), "backend/intents.json")
 
+
+# other imports
+import os
+
+# Conditional import for pyautogui based on display availability
+if os.environ.get('DISPLAY') is None:
+    print("No display found. Skipping pyautogui functionality.")
+    pyautogui = None  # Set to None or a mock function to avoid errors
+else:
+    import pyautogui
+
+# rest of your code where you use pyautogui
+def some_function():
+    if pyautogui is not None:
+        # Your pyautogui code here, e.g., pyautogui.click()
+        print("pyautogui is available")
+    else:
+        # Handle alternative logic when pyautogui is not available
+        print("pyautogui is not available. Skipping this functionality.")
+
+
+
 with open("intents.json") as file:
     data = json.load(file)
 
