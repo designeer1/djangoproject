@@ -10,7 +10,7 @@ import json
 import pickle
 import numpy as np
 import random
-import pyautogui
+#import pyautogui
 import pyttsx3
 import speech_recognition as sr
 import psutil
@@ -22,6 +22,13 @@ from elevenlabs import generate, play
 from .assistants import engine_talk, initialize_engine
 from django.shortcuts import render
 import comtypes
+# other imports
+import os
+
+
+# rest of your code where you use pyautogui
+
+
 
 
 #  Load API key
@@ -33,20 +40,6 @@ MODEL_PATH = os.path.join(os.path.dirname(__file__), "backend/chat_model.h5")
 TOKENIZER_PATH = os.path.join(os.path.dirname(__file__), "backend/tokenizer.pkl")
 LABEL_ENCODER_PATH = os.path.join(os.path.dirname(__file__), "backend/label_encoder.pkl")
 INTENTS_PATH = os.path.join(os.path.dirname(__file__), "backend/intents.json")
-
-
-# other imports
-import os
-
-# Conditional import for pyautogui based on display availability
-if os.environ.get('DISPLAY') is None:
-    print("No display found. Skipping pyautogui functionality.")
-    pyautogui = None  # Set to None or a mock function to avoid errors
-else:
-    import pyautogui
-
-# rest of your code where you use pyautogui
-
 
 with open("intents.json") as file:
     data = json.load(file)
@@ -227,15 +220,15 @@ def process_command(request):
             social_media(query)
         elif ("university time table" in query) or ("schedule" in query):
             schedule()
-        elif ("volume up" in query) or ("increase volume" in query):
-            pyautogui.press("volumeup")
-            speak("Volume increased")
-        elif ("volume down" in query) or ("decrease volume" in query):
-            pyautogui.press("volumedown")
-            speak("Volume decrease")
-        elif ("volume mute" in query) or ("mute the sound" in query):
-            pyautogui.press("volumemute")
-            speak("Volume muted")
+        #elif ("volume up" in query) or ("increase volume" in query):
+            #pyautogui.press("volumeup")
+            #speak("Volume increased")
+        #elif ("volume down" in query) or ("decrease volume" in query):
+         ##   pyautogui.press("volumedown")
+           # speak("Volume decrease")
+       # elif ("volume mute" in query) or ("mute the sound" in query):
+          #  pyautogui.press("volumemute")
+          #  speak("Volume muted")
         elif ("open calculator" in query) or ("open notepad" in query) or ("open paint" in query):
             openApp(query)
         elif ("close calculator" in query) or ("close notepad" in query) or ("close paint" in query):
