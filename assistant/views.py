@@ -62,13 +62,22 @@ with open("label_encoder.pkl", "rb") as encoder_file:
 #     volume = engine.getProperty('volume')
 #     engine.setProperty('volume', volume+0.25)
 #     return engine
+import pyttsx3
+speak = pyttsx3.init()
+
+
+  # Adjust speed (increase for faster speech)
+
 
 def speak(text):
     comtypes.CoUninitialize()
     engine = initialize_engine()
     engine.say(text)
     engine.runAndWait()
-    speak = pyttsx3.init()
+    engine.setProperty('rate', 180)
+   
+    
+    
 def finalize_engine():
     # Clean up COM resources after the operation
     comtypes.CoUninitialize()
@@ -184,13 +193,16 @@ def closeApp(command):
 
 
 def browsing(query):
+    global state
+
     if 'google' in query:
-        speak("Boss, what should i search on google..")
-        s = query().lower()
+        speak("Boss, what should I search on Google?")
+        state = "google_search"
+        s = command().lower()
         webbrowser.open(f"{s}")
     elif 'edge' in query:
         speak("Boss, what should i search on edge..")
-        s = query().lower()
+        s = command().lower()
         webbrowser.open(f"{s}") 
 
 
@@ -224,11 +236,11 @@ def process_command(request):
             #pyautogui.press("volumeup")
             #speak("Volume increased")
         #elif ("volume down" in query) or ("decrease volume" in query):
-         ##   pyautogui.press("volumedown")
-           # speak("Volume decrease")
-       # elif ("volume mute" in query) or ("mute the sound" in query):
-          #  pyautogui.press("volumemute")
-          #  speak("Volume muted")
+            #pyautogui.press("volumedown")
+            #speak("Volume decrease")
+        #elif ("volume mute" in query) or ("mute the sound" in query):
+            #pyautogui.press("volumemute")
+            #speak("Volume muted")
         elif ("open calculator" in query) or ("open notepad" in query) or ("open paint" in query):
             openApp(query)
         elif ("close calculator" in query) or ("close notepad" in query) or ("close paint" in query):
