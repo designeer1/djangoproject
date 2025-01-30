@@ -1,1 +1,1 @@
-web: waitress-serve --listen=0.0.0.0:$PORT vibe_ai.wsgi:application
+web: waitress-serve --listen=0.0.0.0:$PORT vibe_ai/wsgi.py:application
